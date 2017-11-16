@@ -259,3 +259,6 @@ paket-files/
 # Python Tools for Visual Studio (PTVS)
 __pycache__/
 *.pyc
+/toy/allocator.h
+/toy/myalloc11.cpp
+/toy/myalloc11.hpp

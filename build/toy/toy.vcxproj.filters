@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="svg">
+      <UniqueIdentifier>{1738a73a-f2aa-41fc-a0ee-470475f67f1b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="secure">
+      <UniqueIdentifier>{68c33f72-2df5-404e-8b7e-0a85fe86684e}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
