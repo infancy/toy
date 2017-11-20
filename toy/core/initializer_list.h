@@ -10,8 +10,7 @@
 namespace toy
 {
 
-// see the C++11/14 Standard, section 18.9.
-// see the C++17 Standard, section 21.9.
+// C++17 Standard, section 21.9.
 
 template<typename E>
 class initializer_list
@@ -36,24 +35,24 @@ public:
 	{
 	}
 
-	constexpr size_t size() const noexcept
+	constexpr size_t size() const noexcept		
 	{
 		return static_cast<size_t>(last - first);
 	}
 
-	constexpr const E* begin() const noexcept
+	constexpr const E* begin() const noexcept	
 	{
-		return first;
+		return first;	
 	}
 
 	constexpr const E* end() const noexcept
 	{
-		return last;
+		return last;	
 	}
 
 private:
-	E* first;
-	E* last;
+	E* first;	
+	E* last;	
 };
 
 template<class E> 
@@ -70,4 +69,4 @@ constexpr const E* end(initializer_list<E> il) noexcept
 
 }	// namespace toy
 
-#endif // TOY_CORE_INITIALIZER_LIST_H
+#endif	// TOY_CORE_INITIALIZER_LIST_H

@@ -6,8 +6,9 @@
 
 // -----------------------------------------------------------------------------
 
-TEST(initializer_list_test, empty_initializer_list)
+TEST(initializer_list_test, empty_vector)
 {
+
 	toy::initializer_list<int> il;
 
 	ASSERT_EQ(0, il.size());
@@ -17,15 +18,4 @@ TEST(initializer_list_test, empty_initializer_list)
 
 	ASSERT_EQ(nullptr, begin(il));
 	ASSERT_EQ(nullptr, end(il));
-}
-
-// -----------------------------------------------------------------------------
-
-GTEST_API_ int main(int argc, char **argv)
-{
-	// printf("Running main() from gtest_main.cc\n");
-	testing::InitGoogleTest(&argc, argv);
-	auto result = RUN_ALL_TESTS();
-	getchar();
-	return result;
 }
