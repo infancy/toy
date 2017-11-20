@@ -374,7 +374,9 @@ template<class T>
 constexpr T&& 
 forward(remove_reference_t<T>&& t) noexcept
 {	// forward an rvalue as an rvalue
-	static_assert(!is_lvalue_reference<T>::value, "bad forward call");
+
+	static_assert(!is_lvalue_reference<T>::value,
+		"shouldn't call forward<T&&>(T& t) explicitly");
 	return static_cast<T&&>(t);
 }
 
