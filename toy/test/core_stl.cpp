@@ -99,6 +99,28 @@ TEST(memory_test, allocator)
 	ASSERT_EQ(true, p2 == p3);
 }
 
+// test unique_ptr -------------------------------------------------------------
+
+TEST(memory_test, unique_ptr)
+{
+	toy::unique_ptr<int> p;
+	toy::unique_ptr<int> q{ nullptr };
+	toy::unique_ptr<int> r{ new int{ 0 } };
+	auto s = toy::make_unique<int>(1);
+
+	ASSERT_EQ(0, *r);
+	ASSERT_EQ(true, p == q);
+	ASSERT_EQ(true, r < s);
+	// ASSERT_EQ(false, p < r);
+
+	p.reset(q.release());
+	swap(r, s);
+
+	ASSERT_EQ(0, *s);
+	ASSERT_EQ(true, p == q);
+	ASSERT_EQ(false, r < s);
+}
+
 // -----------------------------------------------------------------------------
 
 GTEST_API_ int main(int argc, char **argv)
