@@ -17,14 +17,6 @@ namespace toy
 
 // swap ------------------------------------------------------------------------
 
-template<class T, size_t N> 
-inline void swap(T (&left)[N], T (&right)[N])
-	noexcept(std::_Is_nothrow_swappable<T>::value)		// C++17:is_nothrow_swappable_v<T>
-{
-	for (size_t i = 0; i < N; ++i)
-		swap(left[i], right[i]);		// swap_iter()
-}
-
 template<class T> 
 inline void swap(T& left, T& right) 
 	noexcept(std::is_nothrow_move_constructible<T>::value && std::is_nothrow_move_assignable<T>::value)
@@ -32,6 +24,14 @@ inline void swap(T& left, T& right)
 	T tmp = toy::move(left);
 	left  = toy::move(right);
 	right = toy::move(tmp);
+}
+
+template<class T, size_t N>
+inline void swap(T(&left)[N], T(&right)[N])
+noexcept(std::_Is_nothrow_swappable<T>::value)		// C++17:is_nothrow_swappable_v<T>
+{
+	for (size_t i = 0; i < N; ++i)
+		swap(left[i], right[i]);		// swap_iter()
 }
 
 // pair ------------------------------------------------------------------------

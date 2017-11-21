@@ -7,5 +7,6 @@
     <ClInclude Include="..\..\toy\core\utility.h" />
     <ClInclude Include="..\..\toy\core\type_traits.h" />
     <ClInclude Include="..\..\toy\core\functional.h" />
+    <ClInclude Include="..\..\toy\core\memory.h" />
   </ItemGroup>
 </Project>

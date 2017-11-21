@@ -17,12 +17,12 @@ class initializer_list
 {
 public:
 	using value_type      = E;
-	using reference       = const E&;
-	using cosnt_reference = const E&;
-	using size_type       = size_t;
-
 	using iterator        = const E*;
 	using const_iterator  = const E*;
+	using reference       = const E&;
+	using const_reference = const E&;
+
+	using size_type       = size_t;
 
 public:
 	constexpr initializer_list() noexcept

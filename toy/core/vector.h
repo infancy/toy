@@ -20,7 +20,7 @@ namespace toy
 
 // base class for vector to handle allocator
 template <typename T, typename Allocator>
-struct VectorBase
+struct vector_base
 {
 	using allocator_type  = Allocator;
 	using size_type       = size_t;
@@ -44,11 +44,11 @@ protected:
 	const allocator_type&  internalAllocator() const EA_NOEXCEPT { return mCapacityAllocator.second(); }
 
 public:
-	VectorBase();
-	VectorBase(const allocator_type& allocator);
-	VectorBase(size_type n, const allocator_type& allocator);
+	vector_base();
+	vector_base(const allocator_type& allocator);
+	vector_base(size_type n, const allocator_type& allocator);
 
-	~VectorBase();
+	~vector_base();
 
 	const allocator_type& get_allocator() const EA_NOEXCEPT;
 	allocator_type&       get_allocator() EA_NOEXCEPT;
@@ -59,7 +59,7 @@ protected:
 	void      DoFree(T* p, size_type n);
 	size_type GetNewCapacity(size_type currentCapacity);
 
-};	// VectorBase
+};	// vector_base
 
 
 

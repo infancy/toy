@@ -3,6 +3,7 @@
 #include <gtest/gtest.h>
 
 #include "toy/core/initializer_list.h"
+#include "toy/core/memory.h"
 #include "toy/core/type_traits.h"
 #include "toy/core/utility.h"
 
@@ -67,6 +68,25 @@ TEST(utility_test, pair)
 	toy::pair<int, float> p1{1, 1.f};
 	toy::pair<int, float> p2{2, 2.f};
 	auto p3{p1};
+	auto p4 = toy::make_pair(2, 2.f);
+
+	ASSERT_EQ(true, p1 < p2);
+	ASSERT_EQ(true, p1 == p3);
+	ASSERT_EQ(true, p2 == p4);
+
+	toy::swap(p1, p2);
+
+	ASSERT_EQ(true, p1.first == 2 && p1.second == 2.f);
+	ASSERT_EQ(true, p2 == p3);
+}
+
+// test allocator --------------------------------------------------------------
+
+TEST(memory_test, allocator)
+{
+	toy::pair<int, float> p1{ 1, 1.f };
+	toy::pair<int, float> p2{ 2, 2.f };
+	auto p3{ p1 };
 	auto p4 = toy::make_pair(2, 2.f);
 
 	ASSERT_EQ(true, p1 < p2);
