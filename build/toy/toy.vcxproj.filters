@@ -32,5 +32,8 @@
     <ClCompile Include="..\..\toy\secure\hash.cpp">
       <Filter>secure</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\toy\secure\RSA.cpp">
+      <Filter>secure</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

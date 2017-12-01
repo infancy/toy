@@ -3,6 +3,7 @@
 #include <gtest/gtest.h>
 
 #include "toy/secure/hash.h"
+#include "toy/secure/RSA.h"
 
 using namespace std;
 
@@ -12,7 +13,7 @@ TEST(secure_hash_test, MD5)
 {
 	toy::MD5 md5;
 
-	string test_buf[7] =
+	string test_str[7] =
 	{
 		{ "" },
 		{ "a" },
@@ -36,8 +37,35 @@ TEST(secure_hash_test, MD5)
 
 	for (size_t i = 0; i<7; ++i)
 	{
-		md5.encode(test_buf[i]);
+		md5.encode(test_str[i]);
 		cout << md5.to_hex_string() << '\n';
 		ASSERT_EQ(0, memcmp(md5.to_hash(), test_sum[i], 16));
+	}
+}
+
+// test RSA --------------------------------------------------------------------
+
+TEST(secure_RSA_test, RSA)
+{
+	toy::RSA rsa;
+	rsa.generate_key();
+
+	string test_str[7] =
+	{
+		{ "abc" },
+		{ "a" },
+		{ "abc" },
+		{ "message digest" },
+		{ "abcdefghijklmnopqrstuvwxyz" },
+		{ "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789" },
+		{ "12345678901234567890123456789012345678901234567890123456789012345678901234567890" }
+	};
+
+	for (size_t i = 0; i<7; ++i)
+	{
+		auto ciphertext = toy::RSA_encode(test_str[i], rsa.public_key());
+		auto plaintext = toy::RSA_decode(ciphertext, rsa.private_key());
+		cout << '\"' << plaintext << "\"\n";
+		ASSERT_EQ(test_str[i], plaintext);
 	}
 }

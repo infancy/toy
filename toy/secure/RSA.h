@@ -5,39 +5,39 @@
 #ifndef TOY_SECURE_RSA_H
 #define TOY_SECURE_RSA_H
 
-#include <iostream>
 #include <cmath>
+#include <cstdio>
+#include <cstdlib>
+#include <ctime>
+#include <cstring>
+#include <iostream>
+#include <utility>
+#include <vector>
 
 namespace toy
 {
 
-long RSA(long baseNum, long message, long key) 
+// https://zh.wikipedia.org/wiki/RSA%E5%8A%A0%E5%AF%86%E6%BC%94%E7%AE%97%E6%B3%95
+// https://github.com/pantaloons/RSA/blob/master/single.c
+
+class RSA
 {
-	if (baseNum < 1 || key < 1)
-		return 0L;
+public:
+	void generate_key();
 
-	return static_cast<long>(pow(message, key)) % baseNum;
-}
+	std::pair<size_t, size_t> public_key()  { return pub_key; }	// (N, e)
+	std::pair<size_t, size_t> private_key() { return pri_key; }	// (N, d)
 
-void RSA_test() 
-{
-	//基数  
-	int baseNum = 3 * 11;
-	//公钥  
-	int keyE = 3;
-	//密钥  
-	int keyD = 7;
-	//未加密的数据  
-	long msg = 24L;
-	//加密后的数据  
-	long encode_msg = RSA(baseNum, keyE, msg);
-	//解密后的数据  
-	long decode_msg = RSA(baseNum, keyD, encode_msg);
+private:
+	// size_t bytes{};		// 每次处理的字节数
 
-	std::cout << "加密前：" << msg;
-	std::cout << "加密后：" << encode_msg;
-	std::cout << "解密后：" << decode_msg;
-}
+	std::pair<size_t, size_t> pub_key{};
+	std::pair<size_t, size_t> pri_key{};
+};
+
+std::vector<int> RSA_encode(std::string plaintext, std::pair<size_t, size_t> public_key);
+
+std::string RSA_decode(const std::vector<int>& ciphertext, std::pair<size_t, size_t> private_key);
 
 }	// namespace toy	
 
