@@ -73,7 +73,7 @@ public:
 	template<class U, class... Args>
 	void construct(const U* ptr, Args&&... args)
 	{	// construct U(Args...) at ptr
-		::new(const_cast<void *>(static_cast<const volatile void *>(ptr)))
+		::new(const_cast<void*>(static_cast<const volatile void*>(ptr)))
 			U(std::forward<Args>(args)...);
 	}
 
@@ -94,8 +94,8 @@ class allocator<void>
 {	// generic allocator for type void
 public:
 	using value_type = void;
-	using pointer = void *;
-	using const_pointer = const void *;
+	using pointer = void*;
+	using const_pointer = const void*;
 
 	template<class U>
 	struct rebind

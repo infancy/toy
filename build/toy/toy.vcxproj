@@ -115,7 +115,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\toy\secure\hash.h" />
+    <ClInclude Include="..\..\toy\secure\RSA.h" />
+    <ClInclude Include="..\..\toy\utility\byte.h" />
+    <ClInclude Include="..\..\toy\utility\stencil.h" />
     <ClInclude Include="..\..\toy\utility\type.h" />
+    <ClInclude Include="..\..\toy\utility\utility.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\toy\secure\hash.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

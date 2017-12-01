@@ -4,10 +4,33 @@
     <Filter Include="utility">
       <UniqueIdentifier>{c8e3e52a-ec02-43fa-8912-f76912bbc17a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="secure">
+      <UniqueIdentifier>{c0a8c6da-0b05-4a4b-a01e-28eb6696986f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\toy\utility\type.h">
       <Filter>utility</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\toy\secure\RSA.h">
+      <Filter>secure</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\toy\utility\stencil.h">
+      <Filter>utility</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\toy\secure\hash.h">
+      <Filter>secure</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\toy\utility\utility.h">
+      <Filter>utility</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\toy\utility\byte.h">
+      <Filter>utility</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\toy\secure\hash.cpp">
+      <Filter>secure</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

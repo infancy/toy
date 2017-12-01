@@ -1,10 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27004.2009
+VisualStudioVersion = 15.0.27004.2010
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "toy_test", "build\toy_test\toy_test.vcxproj", "{F362867E-4736-42C8-AB3E-92255C8F1F03}"
 	ProjectSection(ProjectDependencies) = postProject
+		{2F193BA5-4BBE-4D72-967E-CABA36F4EAC4} = {2F193BA5-4BBE-4D72-967E-CABA36F4EAC4}
 		{B11DDCAA-0A3C-4315-AD03-178E4E125E28} = {B11DDCAA-0A3C-4315-AD03-178E4E125E28}
 	EndProjectSection
 EndProject
