@@ -52,7 +52,7 @@ TEST(secure_RSA_test, RSA)
 
 	string test_str[7] =
 	{
-		{ "abc" },
+		{ "" },
 		{ "a" },
 		{ "abc" },
 		{ "message digest" },

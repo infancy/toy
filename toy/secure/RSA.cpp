@@ -1,4 +1,5 @@
 #include "toy/secure/RSA.h"
+#include <iostream>
 
 using namespace std;
 
@@ -187,7 +188,6 @@ vector<int> RSA_encode(string plaintext, pair<size_t, size_t> public_key)
 
 	// 避免了零长度？
 	auto pad_len = bytes - plaintext.length() % bytes;
-	// while(pad_len--)
 	for(size_t i = 0; i < pad_len; ++i)
 		// plaintext.append('\0');
 		plaintext.push_back('\0');
@@ -201,8 +201,10 @@ vector<int> RSA_encode(string plaintext, pair<size_t, size_t> public_key)
 		// cipher[i] = m^e mod n
 		int m = 0;
 		for (int j = 0; j < bytes; ++j)
-			m += plaintext[i + j] * (1 << (7 * j));
-
+		{
+			// cout << '\"' << plaintext[i + j] << "\"\n";
+			m += plaintext[i*bytes + j] * (1 << (7 * j));
+		}
 		ciphertext[i] = encode(m, e, n);
 	}
 
@@ -229,8 +231,7 @@ string RSA_decode(const vector<int>& ciphertext, pair<size_t, size_t> private_ke
 			plaintext[i*bytes + j] = static_cast<char>((m >> (7 * j)) % 128);
 	}
 
-	// 这样的实现是有问题的
-	//while (*plaintext.end() == '\0')
+	// 这样判断 pad 的实现存在问题
 	while (!plaintext.empty() && plaintext.back() == '\0')
 		plaintext.pop_back();
 
