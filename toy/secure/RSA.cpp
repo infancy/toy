@@ -154,25 +154,28 @@ void RSA::generate_key()
 
 	while (true)
 	{
-		// two prime factors
+		// 1.two prime factors
 		p = rand_prime(SINGLE_MAX);
 		q = rand_prime(SINGLE_MAX);
 
-		// prime product
+		// 2.prime product
 		n = p * q;
-		// prime product is less than 128, cannot encode single bytes. Trying again ...
+		// at least prime product should more than 128
+		// to encode single bytes.
 		if (n >= 128)
 			break;
 	}
 
-	// totient
+	// 3.totient
 	size_t phi = (p - 1) * (q - 1);
 
-	// Chose public exponent
+	// 4.Chose public exponent
+	// e > 1 && e < totient && gcd(e, totient) = 1
 	size_t e = rand_exponent(phi, EXPONENT_MAX);
 	pub_key = { n, e };
 
-	// Calculated private exponent
+	// 5.Calculated private exponent
+	// for certain n and e, only one d can uesd as pri_key
 	size_t d = inverse(e, phi);
 	pri_key = { n, d };
 }
