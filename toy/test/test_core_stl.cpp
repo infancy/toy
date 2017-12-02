@@ -109,8 +109,10 @@ TEST(memory_test, unique_ptr)
 	auto s = toy::make_unique<int>(1);
 
 	ASSERT_EQ(0, *r);
+	// can't *nullptr
+	// ASSERT_EQ(true, *p == *q);
 	ASSERT_EQ(true, p == q);
-	ASSERT_EQ(true, r < s);
+	ASSERT_EQ(true, *r < *s);
 	// ASSERT_EQ(false, p < r);
 
 	p.reset(q.release());
@@ -118,7 +120,7 @@ TEST(memory_test, unique_ptr)
 
 	ASSERT_EQ(0, *s);
 	ASSERT_EQ(true, p == q);
-	ASSERT_EQ(false, r < s);
+	ASSERT_EQ(false, *r < *s);
 }
 
 // -----------------------------------------------------------------------------
