@@ -119,14 +119,12 @@
     <ClInclude Include="..\..\toy\core\initializer_list.h" />
     <ClInclude Include="..\..\toy\core\iterator.h" />
     <ClInclude Include="..\..\toy\core\memory.h" />
+    <ClInclude Include="..\..\toy\core\stddef.h" />
     <ClInclude Include="..\..\toy\core\type_traits.h" />
     <ClInclude Include="..\..\toy\core\utility.h" />
     <ClInclude Include="..\..\toy\core\vector.h" />
-    <ClInclude Include="..\..\toy\prototype\deque.h" />
-    <ClInclude Include="..\..\toy\prototype\list.h" />
-    <ClInclude Include="..\..\toy\prototype\map.h" />
-    <ClInclude Include="..\..\toy\prototype\memory.h" />
-    <ClInclude Include="..\..\toy\prototype\unorder_map.h" />
+    <ClInclude Include="..\..\toy\std\memory.h" />
+    <ClInclude Include="..\..\toy\std\utility.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

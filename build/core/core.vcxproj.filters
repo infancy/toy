@@ -10,9 +10,6 @@
     <ClInclude Include="..\..\toy\core\iterator.h">
       <Filter>core</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\toy\core\memory.h">
-      <Filter>core</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\toy\core\type_traits.h">
       <Filter>core</Filter>
     </ClInclude>
@@ -22,20 +19,17 @@
     <ClInclude Include="..\..\toy\core\vector.h">
       <Filter>core</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\toy\prototype\map.h">
-      <Filter>prototype</Filter>
+    <ClInclude Include="..\..\toy\core\stddef.h">
+      <Filter>core</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\toy\prototype\list.h">
-      <Filter>prototype</Filter>
+    <ClInclude Include="..\..\toy\core\memory.h">
+      <Filter>core</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\toy\prototype\deque.h">
-      <Filter>prototype</Filter>
+    <ClInclude Include="..\..\toy\std\memory.h">
+      <Filter>std</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\toy\prototype\unorder_map.h">
-      <Filter>prototype</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\toy\prototype\memory.h">
-      <Filter>prototype</Filter>
+    <ClInclude Include="..\..\toy\std\utility.h">
+      <Filter>std</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -44,6 +38,9 @@
     </Filter>
     <Filter Include="prototype">
       <UniqueIdentifier>{7dace19a-26ba-4bd2-9ccf-9694c19c3ecc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="std">
+      <UniqueIdentifier>{e622b163-7d90-4d62-b421-0ad1d9590a3f}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
